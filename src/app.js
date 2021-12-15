@@ -9,6 +9,6 @@ const corsOptions = {
 
 const app = express();
 app.use(requestsRouter);
-app.use(cors(corsOptions));
+app.use(cors());
 
 module.exports = app;
