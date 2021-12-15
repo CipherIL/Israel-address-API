@@ -16,7 +16,7 @@ const getCities = async (req,res) => {
         //send data by limit
         if(data.length<=limit) return res.status(200).send(data);
         else {
-            data = data.slice(0,params.limit);
+            data = data.slice(0,limit);
             return res.status(200).send(data);
         }
     } catch (err) {
