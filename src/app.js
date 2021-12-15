@@ -5,10 +5,11 @@ const cors = require('cors');
 const corsOptions = {
     origin: "*",
     methods: ['GET'],
+    allowedHeaders: [],
 }
 
 const app = express();
 app.use(requestsRouter);
-app.use(cors());
+app.use(cors(corsOptions));
 
 module.exports = app;
