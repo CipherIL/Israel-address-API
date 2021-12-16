@@ -19,7 +19,7 @@ const cities = [
     { city: 'גבעתיים', cityEnglish:"GIV'ATAYIM"},
     { city: 'דימונה', cityEnglish:"DIMONA"},
     { city: 'הוד השרון', cityEnglish:"HOD HASHARON"},
-    { city: 'הרצלייה', cityEnglish:"HERZLIYYA"},
+    { city: 'הרצליה', cityEnglish:"HERZLIYYA"},
     { city: 'חדרה', cityEnglish:"HADERA"},
     { city: 'חולון', cityEnglish:"HOLON"},
     { city: 'חיפה', cityEnglish:"HAIFA"},
