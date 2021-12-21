@@ -4,6 +4,8 @@ const streets = require('../data/streets');
 const getCities = async (req,res) => {
     const params = req.query;
     const limit = params.limit || 10;
+    const full = params.full || false;
+
     try {
         //check valid query
         if(!params.q || params.q === "") throw ({status:400,message:"Invalid query"});
@@ -12,6 +14,10 @@ const getCities = async (req,res) => {
         //check if any data exists
         if(data.length===0) {
             throw {status:404,message:"No cities found with these parameters"};
+        }
+        //format data to just hebrew name if full is false
+        if(!full) {
+            data = data.map(city=>city.city);
         }
         //send data by limit
         if(data.length<=limit) return res.status(200).send(data);
@@ -27,6 +33,8 @@ const getCities = async (req,res) => {
 const getStreets = async (req,res) => {
     const params = req.query;
     const limit = params.limit || 10;
+    const full = params.full || false;
+
     try {
         //check valid query
         if(!params.q || params.q==="") throw {status:400,message:"Invalid query"};
@@ -44,8 +52,10 @@ const getStreets = async (req,res) => {
         if(data.length===0) {
             throw {status:404,message:"No streets found with these parameters"};
         }
-        //format the data for just the street name
-        data = data.map(street=>street.street);
+        //format the data for just the street name if full is false
+        if(!full) {
+            data = data.map(street=>street.street);
+        }
         //send data by limit
         if(data.length<=limit) return res.status(200).send(data);
         else {
